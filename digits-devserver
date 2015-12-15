@@ -12,8 +12,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Run the DIGITS development server')
     parser.add_argument('-p', '--port',
             type=int,
-            default=5000,
-            help='Port to run app on (default 5000)'
+            default=8000,
+            help='Port to run app on (default 8000)'
             )
     parser.add_argument('-c', '--config',
             action='store_true',
