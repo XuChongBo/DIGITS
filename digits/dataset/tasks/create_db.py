@@ -256,10 +256,8 @@ class CreateDbTask(Task):
             for line in infile:
                 label = line.strip()
                 if label:
-                    labels.append(label)
-
+                    labels.append(label.decode('utf8'))
         assert len(labels) > 0, 'no labels in labels_file'
-
         self._labels = labels
         return self._labels
 

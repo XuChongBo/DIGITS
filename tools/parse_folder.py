@@ -302,7 +302,7 @@ def parse_folder(folder, labels_file,
     labels = []
 
     ### Read the labels from labels_file
-
+    logger.info("folder %s " % folder)
     if not create_labels:
         with open(labels_file) as infile:
             for line in infile:
@@ -375,7 +375,8 @@ def parse_folder(folder, labels_file,
                 logger.warning('Category "%s" not found in labels_file. Skipping.' % label_name)
                 continue
 
-        logger.debug('Category - %s' % label_name)
+        #logger.debug('Category - %s' % label_name)
+        logger.debug('Category index - %s' % label_index)
 
         lines = []
 

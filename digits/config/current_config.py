@@ -32,7 +32,7 @@ reset()
 
 def config_value(key):
     """
-    Return the current configuration value for the given option
+    Return the current configuration value ( a dictionary ) for the given option
 
     Arguments:
     key -- the key of the configuration option

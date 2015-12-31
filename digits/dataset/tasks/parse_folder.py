@@ -133,7 +133,7 @@ class ParseFolderTask(Task):
             args.append('--percent_test=%s' % self.percent_test)
         if self.max_per_category is not None:
             args.append('--max=%s' % self.max_per_category)
-
+        self.logger.info("%s" % args)
         return args
 
     @override

@@ -242,7 +242,7 @@ def resize_image(image, height, width,
             if channels > 1:
                 noise_size += (channels,)
             #noise = np.random.randint(0, 255, noise_size).astype('uint8')
-            noise = np.full(noise_size,255,dtype='uint8')
+            noise = np.full(noise_size,0,dtype='uint8')
             image = np.concatenate((noise, image, noise), axis=0)
         else:
             padding = (width - resize_width)/2
@@ -250,7 +250,7 @@ def resize_image(image, height, width,
             if channels > 1:
                 noise_size += (channels,)
             #noise = np.random.randint(0, 255, noise_size).astype('uint8')
-            noise = np.full(noise_size,255,dtype='uint8')
+            noise = np.full(noise_size,0,dtype='uint8')
             image = np.concatenate((noise, image, noise), axis=1)
 
         return image

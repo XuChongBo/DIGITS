@@ -114,7 +114,7 @@ class TrainTask(Task):
         self.dataset = None
 
     @override
-    def offer_resources(self, resources):
+    def offer_resources(self, resources):   #check if the required gpus are available in the resources. 
         if 'gpus' not in resources:
             return None
         if not resources['gpus']:
@@ -425,7 +425,7 @@ class TrainTask(Task):
             for line in infile:
                 label = line.strip()
                 if label:
-                    labels.append(label)
+                    labels.append(label.decode('utf8'))
 
         assert len(labels) > 0, 'no labels in labels_file'
 

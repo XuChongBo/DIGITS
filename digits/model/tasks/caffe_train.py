@@ -1039,6 +1039,7 @@ class CaffeTrainTask(TrainTask):
         layers -- which layer activation[s] and weight[s] to visualize
         """
         labels = self.get_labels()
+        #print labels
         net = self.get_net(snapshot_epoch)
 
         # process image
@@ -1046,9 +1047,9 @@ class CaffeTrainTask(TrainTask):
             image = image[:,:,np.newaxis]
         preprocessed = self.get_transformer().preprocess(
                 'data', image)
-
         # reshape net input (if necessary)
         test_shape = (1,) + preprocessed.shape
+        print test_shape, net.blobs['data'].data.shape
         if net.blobs['data'].data.shape != test_shape:
             net.blobs['data'].reshape(*test_shape)
 
@@ -1060,7 +1061,6 @@ class CaffeTrainTask(TrainTask):
         predictions = []
         for i in indices:
             predictions.append( (labels[i], scores[i]) )
-
         visualizations = self.get_layer_visualizations(net, layers)
         return (predictions, visualizations)
 
@@ -1435,6 +1435,7 @@ class CaffeTrainTask(TrainTask):
             t.set_mean('data', mean_image)
 
         #t.set_raw_scale('data', 255) # [0,255] range instead of [0,1]
+        t.set_raw_scale('data', 0.00390625)
 
         self._transformer = t
         return self._transformer

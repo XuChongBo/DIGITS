@@ -21,10 +21,12 @@ class JobsDirOption(config_option.Option):
         return 'Where would you like to store job data?'
 
     def suggestions(self):
-        d = os.path.join(
-                os.path.dirname(digits.__file__),
-                'jobs')
+        # d = os.path.join(
+        #         os.path.dirname(digits.__file__),
+        #         'jobs')
+        d = "/home/xucb/data/digits_jobs"
         return [prompt.Suggestion(d, 'D', desc='default', default=True)]
+
 
     @staticmethod
     def is_path():
